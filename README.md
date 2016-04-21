@@ -12,15 +12,15 @@ Git Clone: git clone https://github.com/thrand-Antharo/AVC-2016-group5
 
 
 
-Week 1 Checklist :
+###Week 1 Checklist 
 
-  AVC plan |   done 
-  All signed agreement | done
-  GitHub setup |  done
-  SSH-connecting to RPi | done 
-  Robot moving in a straight line | 
-  Assemble robot |   
-  Assemble prototype chassis | 
+- [x] AVC plan 
+-  [x] All signed agreement 
+- [x] GitHub setup
+- [x] SSH-connecting to RPi 
+- [] Robot moving in a straight line 
+- []  Assemble robot
+- [] Assemble prototype chassis 
   
   
 
