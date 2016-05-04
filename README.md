@@ -27,8 +27,8 @@ AVC robot building project.
 ###Week 2 Checklist 
 
 - [x] Complete Chasis Design 
-- develop programme moving code 
-- 
+-  develop programme moving code 
+
 
  
 
