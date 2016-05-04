@@ -35,8 +35,9 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 
-int v_left = 135;
-int v_right = 135;
+int normalSpeed = 135;
+int v_left = normalSpeed;
+int v_right = normalSpeed;
 
 int main()
 {
@@ -75,7 +76,19 @@ int main()
 
 int motorControl()
 {    
-    checkCamera(); //placeholder name
+    int error_signal = camera();
+    if(error_signal< 0){
+        v_right =0 - error_signal;
+        v_left= normalSpeed;
+    }
+    else if(error_signal> 0){
+        v_left = 0+ error_signal;
+        v_right = normalSpeed;
+    }
+    else{
+        v_left= normalSpeed;
+        v_right = normalSpeed;
+    }
     set_motor(1,v_right);
     set_motor(2,v_left);
 }
