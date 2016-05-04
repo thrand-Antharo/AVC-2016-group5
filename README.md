@@ -7,9 +7,10 @@ AVC robot building project.
 | Compile | gcc -L/usr/lib -o lt lt.cpp -lE101 |
 | Run | sudo ./lt |
 | Git Clone | git clone https://github.com/thrand-Antharo/AVC-2016-group5 |
+| RPi emulator |  https://github.com/NexusTarget/Bleep-Bloop/wiki/RPi-Emulator |
 | ...      | ... |
 
-RPi emulator: https://github.com/NexusTarget/Bleep-Bloop/wiki/RPi-Emulator
+
 
 
 
