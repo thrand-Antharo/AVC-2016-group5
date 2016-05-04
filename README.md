@@ -40,4 +40,17 @@ AVC robot building project.
 - Complete Software Development to complete Quandrant one 
   
   
+###coding Ideas(feel free to add/change anything you think of)
+-class for motors 
+-medtod for fowards 
+-methods for turning lef and right
+
+-controler class
+-calls methoods in classes
+
+-ir sensor class
+-returns distances on each side with ir sensors
+
+-camera class 
+- uses camera to folow line
 
