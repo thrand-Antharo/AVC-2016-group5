@@ -20,8 +20,20 @@ AVC robot building project.
 - [x] GitHub setup
 - [x] SSH-connecting to RPi 
 - Robot moving in a straight line 
-- Assemble robot
-- Assemble prototype chassis 
+- [x] Assemble robot
+- [x] Assemble prototype chassis 
+- 
+###Week 2 Checklist 
+
+- [x] Complete Chasis Design 
+- develop programme moving code 
+- 
+
+### Week 3 Checklist 
+
+-Finalises Chasis Design 
+- Start Test cases for Quadrant one 
+- Complete Software Development to complete Quandrant one 
   
   
 
