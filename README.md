@@ -43,7 +43,7 @@ AVC robot building project.
 ###coding Ideas(feel free to add/change anything you think of)
 -class for motors 
 -medtod for fowards 
--methods for turning lef and right
+-methods for turning left and right based on error signal from camera class
 
 -controler class
 -calls methoods in classes
@@ -53,4 +53,5 @@ AVC robot building project.
 
 -camera class 
 - uses camera to folow line
+- returns error signal (0 = centered, - = too far left, + = too far right)
 
