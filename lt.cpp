@@ -35,8 +35,8 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 
-int v_left = 0;
-int v_right = 0;
+int v_left = 135;
+int v_right = 135;
 
 int main()
 {
@@ -61,25 +61,6 @@ int main()
        set_pixel(103, 55 ,255,0,0);
        // display picture
        update_screen();
-
-       // check motors
-       v_left = -135;
-       v_right = -135;
-       set_motor(1,v_right);
-       set_motor(2,v_left);
-       Sleep(1,0);
-       v_left = 135;
-       v_right = 135;
-       set_motor(1,v_right);
-       set_motor(2,v_left);
-       Sleep(1,0);
-       for (i = 0 ; i < 8; i++)
-       {
-        int av = read_analog(i);
-        printf("ai=%d av=%d\n",i,av);
-    }
-
-
      }
 
    // terminate hardware
@@ -90,4 +71,11 @@ int main()
     return 0;
 
 
+}
+
+int motorControl()
+{    
+    checkCamera(); //placeholder name
+    set_motor(1,v_right);
+    set_motor(2,v_left);
 }
