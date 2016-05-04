@@ -21,4 +21,6 @@ int main (){
 // recieve message from the connected server 
 
 
+
 // open gate ?????????
+// how it works ????
