@@ -22,12 +22,15 @@ AVC robot building project.
 - Robot moving in a straight line 
 - [x] Assemble robot
 - [x] Assemble prototype chassis 
-- 
+
+
 ###Week 2 Checklist 
 
 - [x] Complete Chasis Design 
 - develop programme moving code 
 - 
+
+ 
 
 ### Week 3 Checklist 
 
