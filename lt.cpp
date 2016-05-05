@@ -76,7 +76,7 @@ int main()
 
 int motorControl()
 {    
-    int error_signal = camera();
+    int error_signal = line();
     if(error_signal< 0){
         v_right =0 - (normalSpeed/2);
         v_left= normalSpeed;
