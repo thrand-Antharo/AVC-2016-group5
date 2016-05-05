@@ -94,7 +94,7 @@ int motorControl()
 }
 
 int openGate(){
-    connect_to_server(130.195.6.196,int port);
+    connect_to_server(130.195.6.196,1024);
     send_to_server("Please");
     //tbc
 }
