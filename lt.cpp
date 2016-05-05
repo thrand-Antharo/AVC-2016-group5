@@ -37,6 +37,7 @@ extern "C" int receive_from_server(char message[24]);
 
 int v_left = 0;
 int v_right = 0;
+int stright;
 
 int main()
 {
@@ -78,6 +79,15 @@ int main()
         int av = read_analog(i);
         printf("ai=%d av=%d\n",i,av);
     }
+    while(1){
+    stright=read_digital(0);
+    if(stright<150)
+        return 0;
+        }
+        else{
+        return 1;
+        }
+    
 
 
      }
