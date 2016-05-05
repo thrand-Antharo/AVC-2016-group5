@@ -8,6 +8,7 @@ AVC robot building project.
 | Run | sudo ./lt |
 | Git Clone | git clone https://github.com/thrand-Antharo/AVC-2016-group5 |
 | RPi emulator |  https://github.com/NexusTarget/Bleep-Bloop/wiki/RPi-Emulator |
+|Gate IP | 130.195.6.196 |
 | ...      | ... |
 
 
