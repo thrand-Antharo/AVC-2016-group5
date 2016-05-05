@@ -78,11 +78,11 @@ int motorControl()
 {    
     int error_signal = camera();
     if(error_signal< 0){
-        v_right =0 - error_signal;
+        v_right =0 - (normalSpeed/2);
         v_left= normalSpeed;
     }
     else if(error_signal> 0){
-        v_left = 0+ error_signal;
+        v_left =0 - (normalSpeed/2);
         v_right = normalSpeed;
     }
     else{
