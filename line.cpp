@@ -30,28 +30,14 @@ int line() {
   int sum;
   int w;
   take_picture();      // take camera shot
-    for(num=-160,num >= 160, num++; row++){
+    for(num=-160,num <= 160, num++){
       w=get_pixel(120, num, 3);
       sum = sum + num*w
     }
       update_screen();
       return sum;
 }
-//What I want it to do:
-//The robot will know its in the correct direction if there is a certain amount of white pixels in center of the image.
-//If there isn't a certain amount it will take smaller rectangle of the sampled area and count the white pixels again.
-//Depending on these values it will know where there are less white pixels so it will know what way it needs to turn
-//It will keep turning until there is a certain amount of white pixels in the frame.
 
-//Read the image and read the amount of white/semi white pixels in the center of the image and add each white pixel to variable count.
-//Count will have the total amount of white/semi white pixels.
-
-//If count is above a certain amount the robot will keep moving forward.
-//If there is not it will take count the amount of white pixels in smaller portions of the image (Left and right of center)
-//If the left side has less pixels then the robot will know to turn left, and it will keep moving left until there is a certain amount of pixles in the frame.
-//Same for the right side.
-
-//Will return the value to the moving class whether to turn left, right or keep moving forward. 0 for left 1 for right.
 
 //camera size 320x240,  76800 pixles
 
