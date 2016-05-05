@@ -92,9 +92,3 @@ int motorControl()
     set_motor(1,v_right);
     set_motor(2,v_left);
 }
-
-int openGate(){
-    connect_to_server(130.195.6.196,1024);
-    send_to_server("Please");
-    //tbc
-}
