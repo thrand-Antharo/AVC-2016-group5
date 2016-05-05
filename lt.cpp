@@ -79,18 +79,7 @@ int main()
         int av = read_analog(i);
         printf("ai=%d av=%d\n",i,av);
     }
-    while(1){
-    stright=read_digital(0);
-    if(stright<150)
-        return 0;
-        }
-        else{
-        return 1;
-        }
-    
-
-
-     }
+   
 
    // terminate hardware
     close_screen_stream();
@@ -100,4 +89,14 @@ int main()
     return 0;
 
 
+}
+
+int checkIR(){
+    stright=read_digital(0);
+    if(stright<150)
+        return 0;
+        }
+        else{
+        return 1;
+        }
 }
