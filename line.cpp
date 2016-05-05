@@ -26,10 +26,16 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 int line() {
+  int num = -160; //keeps track of column
+  int sum;
+  int w;
   take_picture();      // take camera shot
-       get_pixel(100, 55 ,255,0,0);
-       // display picture
-       update_screen();
+    for(num=-160,num >= 160, num++; row++){
+      w=get_pixel(120, num, 3);
+      sum = sum + num*w
+    }
+      update_screen();
+      return sum;
 }
 //What I want it to do:
 //The robot will know its in the correct direction if there is a certain amount of white pixels in center of the image.
@@ -47,5 +53,5 @@ int line() {
 
 //Will return the value to the moving class whether to turn left, right or keep moving forward. 0 for left 1 for right.
 
-//camera size 160x160??????  25600 pixles???
+//camera size 320x240,  76800 pixles
 
