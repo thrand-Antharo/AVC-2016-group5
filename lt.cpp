@@ -38,7 +38,7 @@ int main (){
     
     init(1);
     connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
-    sen_to_server("Hello server");
+    send_to_server("Please");
     
     char message[24];
     recieve_from_server(message);
