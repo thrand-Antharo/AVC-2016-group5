@@ -83,20 +83,9 @@ int line() {
 int motorControl()
 {
     int error_signal = line();
-    if(error_signal< 0){
-        v_right =0 - (normalSpeed/2);
-        v_left= normalSpeed;
-    }
-    else if(error_signal> 0){
-        v_left =0 - (normalSpeed/2);
-        v_right = normalSpeed;
-    }
-    else{
-        v_left= normalSpeed;
-        v_right = normalSpeed;
-    }
-    set_motor(1,v_right);
-    set_motor(2,v_left);
+    
+    set_motor(1,error_signal*255);
+    set_motor(2,-1*(error_signal*255));
     return 0;
 }
 
