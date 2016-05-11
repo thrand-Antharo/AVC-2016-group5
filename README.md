@@ -21,7 +21,7 @@ AVC robot building project.
 -  [x] All signed agreement 
 - [x] GitHub setup
 - [x] SSH-connecting to RPi 
-- Robot moving in a straight line 
+- [x] Robot moving in a straight line 
 - [x] Assemble robot
 - [x] Assemble prototype chassis 
 
@@ -29,7 +29,7 @@ AVC robot building project.
 ###Week 2 Checklist 
 
 - [x] Complete Chasis Design 
--  develop programme moving code 
+-  [x] develop programme moving code 
 
  
 
