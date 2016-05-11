@@ -68,11 +68,23 @@ int main()
 int line() {
   int num = -160; //keeps track of column
   int sum;
-  int w;
+  float ki = 0;
+  float kd = 0;
+  int w, s;
+  int integral_signal = 0;
+  int derivative_signal = 0;
+  int previous_error = 0;
+  int error_period = 1; //placeholder value - don't know how to get it
   take_picture();      // take camera shot
     for(num=-160,num <= 160, num++){
       w=get_pixel(120, num, 3);
-      sum = sum + num*w
+      if(w>127){s=1;}
+      else{s=0;}
+      sum = sum + num*s
+      int error_diff = sum-previous_error;
+      integral_signal = sum*ki;
+      derivative_signal = (error_diff/error_period)*kd;
+      previous_error = sum;
     }
       update_screen();
       return sum;
