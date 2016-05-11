@@ -31,7 +31,6 @@ AVC robot building project.
 - [x] Complete Chasis Design 
 -  develop programme moving code 
 
-
  
 
 ### Week 3 Checklist 
@@ -46,6 +45,7 @@ AVC robot building project.
 - Complete software Development to complete quadrant two
 - test cases for quadrant two 
 - write results/discussions (ALL)
+- test code that hasnt been checked off from previous weeks
 
 
 
