@@ -55,26 +55,29 @@ int v_right = normalSpeed;
 int line() {
   int num = -160; //keeps track of column
   int sum;
+  int kp = 0;
   float ki = 0;
   float kd = 0;
   int w, s;
+  int proportional_signal = 1;
   int integral_signal = 0;
   int derivative_signal = 0;
   int previous_error = 0;
-  int error_period = 1; //placeholder value - don't know how to get it
   take_picture();      // take camera shot
     for(num=-160; num <= 160; num++){
       w=get_pixel(120, num, 3);
       if(w>127){s=1;}
       else{s=0;}
+      Sleep(0,100000)
       sum = sum + num*s;
       int error_diff = sum-previous_error;
+      proportional_signal = sum*kp;
       integral_signal = sum*ki;
-      derivative_signal = (error_diff/error_period)*kd;
+      derivative_signal = (error_diff/0.1)*kd;
       previous_error = sum;
     }
       update_screen();
-      return sum;
+      return proportional_signal+intergral_signal+derivative_signal;;
 }
 
 int motorControl()
