@@ -8,6 +8,7 @@ AVC robot building project.
 | Run | sudo ./lt |
 | Git Clone | git clone https://github.com/thrand-Antharo/AVC-2016-group5 |
 | RPi emulator |  https://github.com/NexusTarget/Bleep-Bloop/wiki/RPi-Emulator |
+| gate ip | 130.195.6.196 |
 | ...      | ... |
 
 
@@ -37,15 +38,14 @@ AVC robot building project.
 
 - Finalises Chasis Design 
 - Start Test cases for Quadrant one 
-- Complete Software Development to complete Quandrant one 
-- 
+-  Complete Software Development to complete Quandrant one 
+
 
 ### Week 4 Checklist 
 - CURRENTLY BEHIND SCHEDULE 
 - Complete software Development to complete quadrant two
 - test cases for quadrant two 
 - write results/discussions (ALL)
--
 
 
 
