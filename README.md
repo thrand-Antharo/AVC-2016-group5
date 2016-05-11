@@ -38,6 +38,18 @@ AVC robot building project.
 - Finalises Chasis Design 
 - Start Test cases for Quadrant one 
 - Complete Software Development to complete Quandrant one 
+- 
+
+### Week 4 Checklist 
+- CURRENTLY BEHIND SCHEDULE 
+- Complete software Development to complete quadrant two
+- test cases for quadrant two 
+- write results/discussions (ALL)
+-
+
+
+
+
   
   
 ###coding Ideas(feel free to add/change anything you think of)
