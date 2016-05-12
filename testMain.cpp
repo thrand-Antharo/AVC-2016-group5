@@ -68,7 +68,7 @@ int line() {
       w=get_pixel(120, num, 3);
       if(w>127){s=1;}
       else{s=0;}
-      Sleep(0,100000)
+      Sleep(0,100000);
       sum = sum + num*s;
       int error_diff = sum-previous_error;
       proportional_signal = sum*kp;
@@ -77,7 +77,7 @@ int line() {
       previous_error = sum;
     }
       update_screen();
-      return proportional_signal+intergral_signal+derivative_signal;;
+      return proportional_signal+integral_signal+derivative_signal;
 }
 
 int motorControl()
