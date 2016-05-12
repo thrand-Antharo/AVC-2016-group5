@@ -28,7 +28,7 @@ extern "C" int write_digital(int chan,char level);
 extern "C" int read_digital(int chan);
 extern "C" int set_PWM(int chan, int value);
 
-extern "C" int connect_to_server( char server_addr[15],int port);
+extern "C" int connect_to_server( char server_addr[15],int port);         
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
