@@ -47,7 +47,10 @@ AVC robot building project.
 - write results/discussions (ALL)
 - test code that hasnt been checked off from previous weeks
 
-
+### Week 5 Checklist
+- Complete software development to complete quadrant three
+- test cases for quadrant three
+- update sections with new results 
 
 
   
