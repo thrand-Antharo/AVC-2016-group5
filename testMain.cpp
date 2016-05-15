@@ -44,52 +44,42 @@ extern "C" int receive_from_server(char message[24]);
     
 //    return 0;} 
 
-
-
-int normalSpeed = 135;
-int v_left = normalSpeed;
-int v_right = normalSpeed;
-
-
-
 int line() {
-  int num = -160; //keeps track of column
-  int sum;
-  int kp = 0;
-  float ki = 0;
-  float kd = 0;
+  int sum = 0;
+  int kp = 0.5; //example value, testing needed
   int w, s;
-  int proportional_signal = 1;
-  int integral_signal = 0;
-  int derivative_signal = 0;
-  int previous_error = 0;
+  int proportional_signal;
   take_picture();      // take camera shot
-    for(num=-160; num <= 160; num++){
-      w=get_pixel(120, num, 3);
-      if(w>127){s=1;}
-      else{s=0;}
-      Sleep(0,100000);
-      sum = sum + num*s;
-      int error_diff = sum-previous_error;
-      proportional_signal = sum*kp;
-      integral_signal = sum*ki;
-      derivative_signal = (error_diff/0.1)*kd;
-      previous_error = sum;
-    }
-      update_screen();
-      return proportional_signal+integral_signal+derivative_signal;
+  for(num=0; num < 320; num++){
+    w=get_pixel(120, num, 3);
+    if(w>127){s=1;}//if it's closer to white
+    else{s=0;}
+    sum = sum + (num-160)*s;
+  }
+  update_screen();
+  proportional_signal = sum*kp;
+  return proportional_signal;
 }
 
 int motorControl()
 {
+  int SPEED = 127;
     int error_signal = line();
-    if(error_signal == 0){
+    float change = (proportional_signal/SPEED)/10;
+    //if too far left
+    if(error_signal < 0){
+      set_motor(1,change*SPEED);//right motor
+      set_motor(2,255);//left motor
+    }
+    //if too far right
+    else if(error_signal > 0){
+      set_motor(1,error_signal*255);
+      set_motor(2,-1*(change*SPEED));
+    }
+    //if centered
+    else{
       set_motor(1,255);
       set_motor(2,255);
-    }
-    else{
-      set_motor(1,error_signal*255);
-      set_motor(2,-1*(error_signal*255));
     }
     return 0;
 }
