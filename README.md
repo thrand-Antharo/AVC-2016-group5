@@ -70,3 +70,5 @@ AVC robot building project.
 - uses camera to folow line
 - returns error signal (0 = centered, - = too far left, + = too far right)
 
+###group meetings 
+-the group meetings will be on tuesdays form 11pm in the hub.
