@@ -101,7 +101,7 @@ int main()
       int s1 = line (110);
       int s2 = line (120);
       int s3 = line (130);
-      double AvgSignal = (s1+s2+s3)/3;
+      float AvgSignal = (s1+s2+s3)/3;
       motorControl(AvgSignal);
      }
 
