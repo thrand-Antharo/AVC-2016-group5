@@ -69,17 +69,17 @@ int motorControl()
     //if too far left
     if(error_signal < 0){
       set_motor(1,change*SPEED);//right motor
-      set_motor(2,255);//left motor
+      set_motor(2,SPEED);//left motor
     }
     //if too far right
     else if(error_signal > 0){
-      set_motor(1,error_signal*255);
+      set_motor(1,SPEED);
       set_motor(2,-1*(change*SPEED));
     }
     //if centered
     else{
-      set_motor(1,255);
-      set_motor(2,255);
+      set_motor(1,SPEED);
+      set_motor(2,SPEED);
     }
     return 0;
 }
