@@ -44,14 +44,14 @@ extern "C" int receive_from_server(char message[24]);
     
 //    return 0;} 
 
-int line() {
+int line(int row) {
   int sum = 0;
   int kp = 0.5; //example value, testing needed
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
   for(num=0; num < 320; num++){
-    w=get_pixel(120, num, 3);
+    w=get_pixel(row, num, 3);
     if(w>127){s=1;}//if it's closer to white
     else{s=0;}
     sum = sum + (num-160)*s;
@@ -61,11 +61,10 @@ int line() {
   return proportional_signal;
 }
 
-int motorControl()
+int motorControl(float error_signal)
 {
   int SPEED = 127;
-    int error_signal = line();
-    float change = (proportional_signal/SPEED)/10;
+    float change = (error_signal/SPEED)/10;
     //if too far left
     if(error_signal < 0){
       set_motor(1,change*SPEED);//right motor
@@ -99,7 +98,11 @@ int main()
     }
     while(1)
     {
-      motorControl();
+      int s1 = line (110);
+      int s2 = line (120);
+      int s3 = line (130);
+      double AvgSignal = (s1+s2+s3)/3;
+      motorControl(AvgSignal);
      }
 
    // terminate hardware
