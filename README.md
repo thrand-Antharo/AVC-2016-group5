@@ -12,8 +12,11 @@ AVC robot building project.
 | ...      | ... |
 
 
-
-
+###19 may lab
+-test new line detection code
+-test gate code
+-tune PID 
+-3D print chassis 
 
 ###Week 1 Checklist 
 
@@ -71,4 +74,4 @@ AVC robot building project.
 - returns error signal (0 = centered, - = too far left, + = too far right)
 
 ###group meetings 
--the group meetings will be on tuesdays form 11pm in the hub.
+-the group meetings will be on tuesdays from 11pm in the hub.
