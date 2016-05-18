@@ -2,8 +2,8 @@
 #include <string.h>
 #include<stdio.h>
 //space?
-#include "extern.h"
-#include "gate.h" 
+
+
 
 char ip[15] = "130.195.6.196";      //address
 int port = 1024;  //port
