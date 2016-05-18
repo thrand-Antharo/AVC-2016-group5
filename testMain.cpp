@@ -3,6 +3,7 @@
 //#include <pthread.h>
 #include <time.h>
 #include <string.h>
+#include <time.h>
 
 // sudo gcc -Wall
 extern "C" int init_hardware();
@@ -45,8 +46,9 @@ extern "C" int receive_from_server(char message[24]);
 //    return 0;} 
 
 int line(int row) {
-  int sum = 0;
+  int current_error = 0;
   int kp = 1; //example value, testing needed
+  kd = 0.5; //example value, testing needed
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
@@ -54,11 +56,16 @@ int line(int row) {
     w=get_pixel(row, num, 3);
     if(w>127){s=1;}//if it's closer to white
     else{s=0;}
-    sum = sum + (num-160)*s;
+    current_error = current_error + (num-160)*s;
   }
   update_screen();
-  proportional_signal = sum*kp;
-  return proportional_signal;
+  time_t current_time = time (NULL);
+  float time_taken = current_time - previous_time
+  proportional_signal = current_error*kp;
+  derivative_signal = (current_error-previous_error/time_taken)*kd;
+  previous_error = current_error;
+  previous_time = current_time;
+  return proportional_signal+derivative_signal;
 }
 
 int motorControl(float error_signal)
@@ -96,6 +103,8 @@ int main()
       select_IO(i,0);
       write_digital(i,1);
     }
+    int previous_error = 0; //initialise previous error for derivative control
+    time_t previous_time = time (NULL); //get initial time for derivative control
     while(1)
     {
       int s1 = line (110);
