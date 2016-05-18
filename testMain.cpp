@@ -51,7 +51,7 @@ int line(int row) {
   int proportional_signal;
   take_picture();      // take camera shot
   for(int num=0; num < 320; num++){
-    w=get_pixel(row, num, 3);
+    w=get_pixel(num, row, 3);
     if(w>127){s=1;}//if it's closer to white
     else{s=0;}
     sum = sum + (num-160)*s;
