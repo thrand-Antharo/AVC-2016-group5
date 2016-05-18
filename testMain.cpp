@@ -46,7 +46,7 @@ extern "C" int receive_from_server(char message[24]);
 
 int line(int row) {
   int sum = 0;
-  int kp = 0.5; //example value, testing needed
+  int kp = 1; //example value, testing needed
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
