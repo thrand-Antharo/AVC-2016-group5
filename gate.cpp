@@ -6,15 +6,16 @@ extern "C" int init_hardware();
 extern "C" int init(int d_lev);
 
 
-char ip[15] = "130.195.6.196";      //address
-int port = 1024;  //port
-char request [24] = "Please";     //password/message 
-char passord [24];  //message
+
 
 
 
 void open_gate()        //to open gate - call/class thingy
 {
+char ip[15] = "130.195.6.196";      //address
+int port = 1024;  //port
+char request [24] = "Please";     //password/message 
+char passord [24];  //message
 connect_to_server(ip, port); //char server_addr[15], int port
 
 send_to_server(request); //to open - char message[24]
@@ -46,7 +47,7 @@ init(1);
     
  char message[24];
  receive_from_server(message);
-    printf("%s", message);
+  printf("%s", message);
     
-        return 0;} 
+  return 0;} 
 doGate()
