@@ -2,7 +2,8 @@
 #include <string.h>
 #include<stdio.h>
 //space?
-
+extern "C" int init_hardware();
+extern "C" int init(int d_lev);
 
 
 char ip[15] = "130.195.6.196";      //address
@@ -12,7 +13,7 @@ char passord [24];  //message
 
 
 
-void.open_gate()        //to open gate - call/class thingy
+void open_gate()        //to open gate - call/class thingy
 {
 connect_to_server(ip, port); //char server_addr[15], int port
 
@@ -44,7 +45,7 @@ init(1);
  send_to_server("Please");
     
  char message[24];
- recieve_from_server(message);
+ receive_from_server(message);
     printf("%s", message);
     
         return 0;} 
