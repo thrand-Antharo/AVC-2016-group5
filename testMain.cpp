@@ -50,7 +50,7 @@ int line(int row) {
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
-  for(num=0; num < 320; num++){
+  for(int num=0; num < 320; num++){
     w=get_pixel(row, num, 3);
     if(w>127){s=1;}//if it's closer to white
     else{s=0;}
