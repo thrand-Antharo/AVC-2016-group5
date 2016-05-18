@@ -38,7 +38,8 @@ int  doGate (){
 init(1);
  connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
  send_to_server("Please");
-    
+  char request [24] = "Please";     //password/message 
+  char password [24];  //message
  char message[24];
  receive_from_server(message);
   printf("%s", message);
