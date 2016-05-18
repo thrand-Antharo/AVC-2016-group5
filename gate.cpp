@@ -48,3 +48,4 @@ init(1);
     printf("%s", message);
     
         return 0;} 
+doGate()
