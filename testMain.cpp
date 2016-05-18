@@ -46,6 +46,7 @@ extern "C" int receive_from_server(char message[24]);
 //    return 0;} 
 
 int line(int row) {
+  boolean hasLine = false;
   int current_error = 0;
   int kp = 1; //example value, testing needed
   kd = 0.5; //example value, testing needed
@@ -54,7 +55,10 @@ int line(int row) {
   take_picture();      // take camera shot
   for(num=0; num < 320; num++){
     w=get_pixel(row, num, 3);
-    if(w>127){s=1;}//if it's closer to white
+    if(w>127){
+      s=1;//if it's closer to white
+      hasLine = true; //there is a line
+    }
     else{s=0;}
     current_error = current_error + (num-160)*s;
   }
@@ -71,6 +75,7 @@ int line(int row) {
 int motorControl(float error_signal)
 {
   int SPEED = 127;
+  if(hasLine){
     float change = (error_signal/SPEED)/10;
     //if too far left
     if(error_signal < 0){
@@ -87,6 +92,13 @@ int motorControl(float error_signal)
       set_motor(1,SPEED);
       set_motor(2,SPEED);
     }
+  }
+  else{
+    set_motor(1,SPEED);
+    set_motor(2,-SPEED);
+    Sleep(0,100000)
+  }
+  }
     return 0;
 }
 
