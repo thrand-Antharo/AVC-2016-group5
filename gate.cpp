@@ -9,7 +9,7 @@ extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
-int open_gate() {       //to open gate - call/class thingy
+/*int open_gate() {       //to open gate - call/class thingy
 //initialising variables
   char ip[15] = "130.195.6.196";      //address
   int port = 1024;  //port
@@ -31,9 +31,9 @@ int open_gate() {       //to open gate - call/class thingy
 //however it is long and partially copied from the example so not 100% if its a go
 
 
+*/
 
-
-/*int  doGate (){
+int  doGate (){
   
 init(1);
  connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
@@ -44,4 +44,8 @@ init(1);
   printf("%s", message);
     
   return 0;} 
-doGate()*/
+
+int main(){
+ doGate(); 
+}
+
