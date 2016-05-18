@@ -1,6 +1,6 @@
 
 #include <string.h>
-#include<studio.h>
+#include<stdio.h>
 //space?
 #include "extern.h"
 #include "gate.h" 
