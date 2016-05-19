@@ -9,7 +9,7 @@ AVC robot building project.
 | Git Clone | git clone https://github.com/thrand-Antharo/AVC-2016-group5 |
 | RPi emulator |  https://github.com/NexusTarget/Bleep-Bloop/wiki/RPi-Emulator |
 | gate ip | 130.195.6.196 |
-| ...      | ... |
+| Delete folder from SSH | rm -rf foldername |
 
 
 
