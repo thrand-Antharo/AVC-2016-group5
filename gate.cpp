@@ -13,6 +13,7 @@ extern "C" int receive_from_server(char message[24]);
 //initialising variables
   char ip[15] = "130.195.6.196";      //address
   int port = 1024;  //port
+for (){
   char request [24] = "Please";     //password/message 
   char password [24];  //message
   connect_to_server(ip, port); //char server_addr[15], int port
@@ -38,10 +39,12 @@ int  doGate (){
 init(1);
  connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
  send_to_server("Please");
+for (){
  char request [24] = "Please";     //password/message 
  char password [24];  //message
  char message[24];
  receive_from_server(message);
+}
  printf("%s", message);
  return 0;} 
 
