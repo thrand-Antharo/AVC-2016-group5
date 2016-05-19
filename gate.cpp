@@ -46,8 +46,8 @@ init(1);
  return 0;} 
 
 int main(){
-  while(1){
- doGate(); 
+  for(int num=0,num <= 10, num++){
+  doGate(); 
   }
 }
 
