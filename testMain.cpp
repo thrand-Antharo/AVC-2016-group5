@@ -69,21 +69,19 @@ int motorControl(float error_signal)
     if(error_signal < 0){
       set_motor(1,(SPEED/2));//right motor
       set_motor(2,SPEED);//left motor
-      printf("Too far left!");
-      printf("left motor is: %d, right motor is: %d", SPEED, (SPEED/2));
+      printf("Too far left!\n");
     }
     //if too far right
     else if(error_signal > 0){
       set_motor(1,SPEED);
       set_motor(2,(SPEED/2));
-      printf("Too far right!");
-      printf("left motor is: %d, right motor is: %d", (SPEED/2), SPEED);
+      printf("Too far right!\n");
     }
     //if centered
     else{
       set_motor(1,SPEED);
       set_motor(2,SPEED);
-      printf("Full speed ahead!");
+      printf("Going straight\n");
     }
     return 0;
 }
