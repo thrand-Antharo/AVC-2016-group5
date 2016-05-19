@@ -33,27 +33,26 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 
-int line(int row) {
+int line() {
   int sum = 0;
   int kp = 1; //example value, testing needed
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
   for(int num=0; num < 320; num++){
-    w=get_pixel(num, row, 3);
+    w=get_pixel(num, 120, 3);
     if(w>127){s=1;}//if it's closer to white
     else{s=0;}
     sum = sum + (num-160)*s;
   }
   update_screen();
   proportional_signal = sum*kp;
-  printf ("Proportional_signal:"+proportional_signal);
   return proportional_signal;
 }
 
-int motorControl(float error_signal)
+int motorControl(int error_signal)
 {
-  printf("Average error signal: %f\n",error_signal);
+  printf(" error signal: %f\n",error_signal);
   int SPEED = 50;
     float change = (error_signal/SPEED)/10;
     //if too far left
@@ -94,11 +93,7 @@ int main()
     }
     while(1)
     {
-      int s1 = line (110);
-      int s2 = line (120);
-      int s3 = line (130);
-      float AvgSignal = (s1+s2+s3)/3;
-      motorControl(AvgSignal);
+      motorControl(line);
      }
 
    // terminate hardware
