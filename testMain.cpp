@@ -32,17 +32,6 @@ extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
-//int  doGate (){
-  
-//  init(1);
-//    connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
-//    send_to_server("Please");
-    
-//    char message[24];
-//    recieve_from_server(message);
-//    printf("%s", message);
-    
-//    return 0;} 
 
 int line(int row) {
   int sum = 0;
@@ -58,6 +47,7 @@ int line(int row) {
   }
   update_screen();
   proportional_signal = sum*kp;
+  printf ("Proportional_signal:"+proportional_signal);
   return proportional_signal;
 }
 
