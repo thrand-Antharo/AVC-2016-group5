@@ -35,7 +35,7 @@ extern "C" int receive_from_server(char message[24]);
 
 int line() {
   int sum = 0;
-  int kp = 1; //example value, testing needed
+  int kp = 0.3; //example value, testing needed
   int w, s;
   int proportional_signal;
   take_picture();      // take camera shot
@@ -56,17 +56,17 @@ int motorControl(int error_signal)
   int SPEED = 30;
     //if too far left
     if(error_signal < 0){
-      set_motor(1,(SPEED/2));//right motor
+      set_motor(1,0);//right motor
       set_motor(2,SPEED);//left motor
       printf("Too far left!\n");
-      printf("Left motor: %d Right motor %d\n",SPEED,(SPEED/2));
+      printf("Left motor: %d Right motor 0\n",SPEED;
     }
     //if too far right
     else if(error_signal > 0){
       set_motor(1,SPEED);
-      set_motor(2,(SPEED/2));
+      set_motor(2,0);
       printf("Too far right!\n");
-      printf("Left motor: %d Right motor %d\n", (SPEED/2), SPEED);
+      printf("Left motor: 0 Right motor %d\n", SPEED);
     }
     //if centered
     else{
