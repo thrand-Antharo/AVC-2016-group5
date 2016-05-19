@@ -53,8 +53,7 @@ int line() {
 int motorControl(int error_signal)
 {
   printf(" error signal: %f\n",error_signal);
-  int SPEED = 50;
-    float change = (error_signal/SPEED)/10;
+  int SPEED = 30;
     //if too far left
     if(error_signal < 0){
       set_motor(1,(SPEED/2));//right motor
