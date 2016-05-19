@@ -45,6 +45,7 @@ for (){
  char message[24];
  receive_from_server(message);
 }
+sleep (0,1000);
  printf("%s", message);
  return 0;} 
 
