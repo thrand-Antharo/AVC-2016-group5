@@ -66,10 +66,9 @@ int motorControl(float error_signal)
 {
   printf("Average error signal: %f\n",error_signal);
   int SPEED = 30;
-    float change = (error_signal/SPEED)/10;
     //if too far left
     if(error_signal < 0){
-      set_motor(1,(SPEED/2));//right motor
+      set_motor(1,0);//right motor
       set_motor(2,SPEED);//left motor
       printf("Too far left!\n");
       printf("Left motor: %d Right motor %d\n",SPEED,(SPEED/2))
@@ -77,7 +76,7 @@ int motorControl(float error_signal)
     //if too far right
     else if(error_signal > 0){
       set_motor(1,SPEED);
-      set_motor(2,(SPEED/2));
+      set_motor(2,0);
       printf("Too far right!\n");
       printf("Left motor: %d Right motor %d\n", (SPEED/2), SPEED)
     }
