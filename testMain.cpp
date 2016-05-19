@@ -3,7 +3,6 @@
 //#include <pthread.h>
 #include <time.h>
 #include <string.h>
-#include <time.h>
 
 // sudo gcc -Wall
 extern "C" int init_hardware();
