@@ -53,10 +53,10 @@ int line() {
 int motorControl(int error_signal)
 {
   printf(" error signal: %f\n",error_signal);
-  int SPEED = 30;
+  int SPEED = 80;
     //if too far left
     if(error_signal < 0){
-      set_motor(1,0);//right motor
+      set_motor(1,SPEED/2);//right motor
       set_motor(2,SPEED);//left motor
       printf("Too far left!\n");
       printf("Left motor: %d Right motor 0\n",SPEED);
@@ -64,7 +64,7 @@ int motorControl(int error_signal)
     //if too far right
     else if(error_signal > 0){
       set_motor(1,SPEED);
-      set_motor(2,0);
+      set_motor(2,SPEED/2);
       printf("Too far right!\n");
       printf("Left motor: 0 Right motor %d\n", SPEED);
     }
