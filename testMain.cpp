@@ -92,7 +92,7 @@ int main()
     }
     while(1)
     {
-      motorControl(line);
+      motorControl(line());
      }
 
    // terminate hardware
