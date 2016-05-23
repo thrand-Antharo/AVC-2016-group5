@@ -39,11 +39,13 @@ int  doGate (){
 init(1);
  connect_to_server("130.195.6.196", 1024); // port number ???? pos not right 
  send_to_server("Please");
-for (){
+ std::chrono::milliseconds timespan(10000);
+for (int i=0; i>5;i++){
  char request [24] = "Please";     //password/message 
  char password [24];  //message
  char message[24];
  receive_from_server(message);
+ std::this_thread::sleep_for(timespan);
 }
 sleep (0,1000);
  printf("%s", message);
