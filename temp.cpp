@@ -46,7 +46,7 @@ double line() {
     else if(colourVal<127){
       set_motor(2,-1*SPEED);//right motor
       set_motor(1,-1*SPEED);//left motor
-      Sleep(0,500);
+      Sleep(1,0);
     }
     sum = sum + (col-160)*s;
   }
