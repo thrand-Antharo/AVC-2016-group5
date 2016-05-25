@@ -42,7 +42,7 @@ double line() {
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
     if(colourVal>127){s=1;}//if it's closer to white
-    else if{colourVal<127){
+    else if(colourVal<127){
       set_motor(2,-1*SPEED);//right motor
       set_motor(1,-1*SPEED);//left motor
       Sleep(0,500);
