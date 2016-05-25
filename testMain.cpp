@@ -67,7 +67,7 @@ int motorControl(double error_signal)
   double modSpeed;
     //if too far left
     if(error_signal < 0){
-      modSpeed = speedCheck(0, SPEED, SPEED-error_signal)
+      modSpeed = speedCheck(0, SPEED, SPEED-error_signal);
       set_motor(2,SPEED*modSpeed);//right motor
       set_motor(1,SPEED);//left motor
       printf("Too far left!\n");
@@ -75,7 +75,7 @@ int motorControl(double error_signal)
     }
     //if too far right
     else if(error_signal > 0){
-      modSpeed = speedCheck(0, SPEED, SPEED-error_signal)
+      modSpeed = speedCheck(0, SPEED, SPEED-error_signal);
       set_motor(2,SPEED);
       set_motor(1,SPEED*modSpeed);
       printf("Too far right!\n");
