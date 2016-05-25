@@ -35,7 +35,7 @@ extern "C" int receive_from_server(char message[24]);
 
 double line() {
   int sum = 0;
-  double kp = 1; //example value, testing needed
+  double kp = 0.8; //example value, testing needed
   int colourVal, s;
   double proportional_signal;
   take_picture();      // take camera shot
@@ -50,13 +50,24 @@ double line() {
   return proportional_signal;
 }
 
+double speedCheck(int min, int max, double val){
+  if(val<min){
+    val = min;
+  }
+  if(val>max){
+    val = max;
+  }
+  return val;
+}
+
 int motorControl(double error_signal)
 {
   printf(" error signal: %f\n",error_signal);
   int SPEED = 80;
+  double modSpeed;
     //if too far left
     if(error_signal < 0){
-      set_motor(1,SPEED/2);//right motor
+      set_motor(1,SPEED*speedCheck(0, SPEED, SPEED-error_signal));//right motor
       set_motor(2,SPEED);//left motor
       printf("Too far left!\n");
       printf("Left motor: %d Right motor 0\n",SPEED);
@@ -64,7 +75,7 @@ int motorControl(double error_signal)
     //if too far right
     else if(error_signal > 0){
       set_motor(1,SPEED);
-      set_motor(2,SPEED/2);
+      set_motor(2,SPEED*speedCheck(0, SPEED, SPEED-error_signal));
       printf("Too far right!\n");
       printf("Left motor: 0 Right motor %d\n", SPEED);
     }
