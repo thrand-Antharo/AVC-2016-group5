@@ -35,13 +35,12 @@ AVC robot building project.
 
 ### Week 3 Checklist 
 
-- Finalises Chasis Design 
-- Start Test cases for Quadrant one 
+- [x]Finalises Chasis Design 
+- [x]Start Test cases for Quadrant one 
 -  Complete Software Development to complete Quandrant one 
 
 
 ### Week 4 Checklist 
-- CURRENTLY BEHIND SCHEDULE 
 - Complete software Development to complete quadrant two
 - test cases for quadrant two 
 - write results/discussions (ALL)
