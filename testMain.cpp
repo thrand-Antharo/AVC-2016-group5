@@ -33,24 +33,24 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 
-int line() {
+double line() {
   int sum = 0;
-  int kp = 1; //example value, testing needed
-  int w, s;
-  int proportional_signal;
+  double kp = 1; //example value, testing needed
+  int colourVal, s;
+  double proportional_signal;
   take_picture();      // take camera shot
-  for(int num=0; num < 320; num++){
-    w=get_pixel(num, 120, 3);
-    if(w>127){s=1;}//if it's closer to white
+  for(int col=0; col < 320; col++){
+    colourVal=get_pixel(col, 120, 3);
+    if(ColourVal>127){s=1;}//if it's closer to white
     else{s=0;}
-    sum = sum + (num-160)*s;
+    sum = sum + (col-160)*s;
   }
   update_screen();
   proportional_signal = sum*kp;
   return proportional_signal;
 }
 
-int motorControl(int error_signal)
+int motorControl(double error_signal)
 {
   printf(" error signal: %f\n",error_signal);
   int SPEED = 80;
