@@ -41,7 +41,7 @@ double line() {
   take_picture();      // take camera shot
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
-    if(ColourVal>127){s=1;}//if it's closer to white
+    if(colourVal>127){s=1;}//if it's closer to white
     else{s=0;}
     sum = sum + (col-160)*s;
   }
