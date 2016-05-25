@@ -42,7 +42,11 @@ double line() {
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
     if(colourVal>127){s=1;}//if it's closer to white
-    else{s=0;}
+    else if{colourVal<127){
+      set_motor(2,-1*SPEED);//right motor
+      set_motor(1,-1*SPEED);//left motor
+      Sleep(0,500);
+    }
     sum = sum + (col-160)*s;
   }
   update_screen();
@@ -68,16 +72,16 @@ int motorControl(double error_signal)
     //if too far left
     if(error_signal < 0){
       modSpeed = speedCheck(0, SPEED, SPEED-error_signal);
-      set_motor(2,SPEED*modSpeed);//right motor
-      set_motor(1,SPEED);//left motor
+      set_motor(2,SPEED);//right motor
+      set_motor(1,SPEED/2);//left motor
       printf("Too far left!\n");
       printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
     }
     //if too far right
     else if(error_signal > 0){
       modSpeed = speedCheck(0, SPEED, SPEED-error_signal);
-      set_motor(2,SPEED);
-      set_motor(1,SPEED*modSpeed);
+      set_motor(2,SPEED/2);
+      set_motor(1,SPEED);
       printf("Too far right!\n");
       printf("Left motor: %d Right motor %d\n", modSpeed, SPEED);
     }
