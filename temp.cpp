@@ -37,6 +37,7 @@ double line() {
   int sum = 0;
   double kp = 0.8; //example value, testing needed
   int colourVal, s;
+  int SPEED=80;
   double proportional_signal;
   take_picture();      // take camera shot
   for(int col=0; col < 320; col++){
