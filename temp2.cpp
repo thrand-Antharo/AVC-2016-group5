@@ -83,6 +83,7 @@ int motorControl(double error_signal)
   int SPEED = 80;
   double modSpeed;
     //if too far left
+    if(!lose_line()){
     if(error_signal < -200){
       modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
       set_motor(2,SPEED*modSpeed);//right motor
@@ -104,7 +105,8 @@ int motorControl(double error_signal)
       set_motor(2,SPEED);
       printf("Going straight\n");
     }
-    if(lose_line()){
+    }
+    else if(lose_line()){
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
     Sleep(0,500000);
