@@ -109,7 +109,7 @@ int motorControl(double error_signal)
     else if(lose_line()){
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    Sleep(0,500000);
+    Sleep(0,200000);
   }
     return 0;
 }
