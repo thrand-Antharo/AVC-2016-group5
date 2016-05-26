@@ -108,7 +108,7 @@ int motorControl(double error_signal)
       printf("Going straight\n");
     }
     }
-    while(lose_line()){
+    else if(lose_line()){
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
     Sleep(0,200000);
