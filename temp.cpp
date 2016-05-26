@@ -44,7 +44,7 @@ bool lose_line(){
     }else{
       white=0;
     }
-  }
+  }return true;
 }
 double line() {
   int sum = 0;
@@ -53,6 +53,7 @@ double line() {
   int SPEED=80;
   double proportional_signal;
   take_picture();      // take camera shot
+
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
     if(colourVal>127){s=1;}//if it's closer to white
