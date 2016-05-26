@@ -116,6 +116,10 @@ int motorControl(double error_signal)
 
 int main()
 {
+    char ip[15] = "130.195.6.196";
+    int port = 1024;
+    char request[24] = "Please";
+    char password[24];
     int i;
     init(0);
     // connect camera to the screen
@@ -127,11 +131,18 @@ int main()
       select_IO(i,0);
       write_digital(i,1);
     }
+    // Establishes a connection to the gate's server
+    connect_to_server(ip, port);
+    // Sends the request to open the gate
+    send_to_server(request);
+    // Receives the password from the server
+    receive_from_server(password);
+    // Sends the password to the gates ip
+    send_to_server(password);
     while(1)
     {
       motorControl(line());
-     }
-
+    }
    // terminate hardware
     close_screen_stream();
     set_motor(1,0);
