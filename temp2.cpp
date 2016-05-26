@@ -58,7 +58,7 @@ double line() {
   if(lose_line()){
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    Sleep(1,0);
+    Sleep(0,500000);
   }
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
