@@ -11,7 +11,7 @@ int port = 1024;
 char request[24] = "Please";
 char password[24];
 
-void main(){
+int main(){
 
     // Establishes a connection to the gate's server
     connect_to_server(ip, port);
@@ -21,4 +21,5 @@ void main(){
     receive_from_server(password);
     // Sends the password to the gates ip
     send_to_server(password);
+    return 0;
 }
