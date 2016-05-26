@@ -35,7 +35,7 @@ extern "C" int receive_from_server(char message[24]);
 
 double line() {
   int sum = 0;
-  double kp = 0.8; //example value, testing needed
+  double kp = 0.5; //example value, testing needed
   int colourVal, s;
   double proportional_signal;
   take_picture();      // take camera shot
