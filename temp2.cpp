@@ -34,7 +34,6 @@ extern "C" int receive_from_server(char message[24]);
 
 bool lose_line(){
   int white=0;
-  take_picture();  
   for(int num=0;num<320;num++){
     int value=get_pixel(num, 160, 3);
     if(value>110){
@@ -45,7 +44,6 @@ bool lose_line(){
     }else{
       white=0;
     }
-    update_screen();
   }return true;
 }
 
@@ -112,7 +110,6 @@ int motorControl(double error_signal)
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
     Sleep(0,200000);
-    lose_line();
   }
     return 0;
 }
