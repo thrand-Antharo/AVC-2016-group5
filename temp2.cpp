@@ -54,6 +54,11 @@ double line() {
   int colourVal, s;
   double proportional_signal;
   take_picture();      // take camera shot
+  if(lose_line()){
+    set_motor(1,-SPEED);
+    set_motor(2,-SPEED);
+    SLEEP(1,0);
+  }
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
     if(colourVal>127){s=1;}//if it's closer to white
