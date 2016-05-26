@@ -49,6 +49,7 @@ bool lose_line(){
 
 
 double line() {
+  int SPEED = 80;
   int sum = 0;
   double kp = 0.2; //example value, testing needed
   int colourVal, s;
@@ -57,7 +58,7 @@ double line() {
   if(lose_line()){
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    SLEEP(1,0);
+    Sleep(1,0);
   }
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
