@@ -32,7 +32,20 @@ extern "C" int connect_to_server( char server_addr[15],int port);
 extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
-
+bool lose_line(){
+  int white=0;
+  for(int num=0;num<320;num++){
+    int value=get_pixel(num, 160, 3);
+    if(value>110){
+      white+=1;
+      if(white>=10){
+        return false;
+      }
+    }else{
+      white=0;
+    }
+  }
+}
 double line() {
   int sum = 0;
   double kp = 0.8; //example value, testing needed
