@@ -49,17 +49,13 @@ bool lose_line(){
 
 
 double line() {
-  int SPEED = 80;
+  
   int sum = 0;
   double kp = 0.2; //example value, testing needed
   int colourVal, s;
   double proportional_signal;
   take_picture();      // take camera shot
-  if(lose_line()){
-    set_motor(1,-SPEED);
-    set_motor(2,-SPEED);
-    Sleep(0,500000);
-  }
+  
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
     if(colourVal>127){s=1;}//if it's closer to white
@@ -108,6 +104,11 @@ int motorControl(double error_signal)
       set_motor(2,SPEED);
       printf("Going straight\n");
     }
+    if(lose_line()){
+    set_motor(1,-SPEED);
+    set_motor(2,-SPEED);
+    Sleep(0,500000);
+  }
     return 0;
 }
 
