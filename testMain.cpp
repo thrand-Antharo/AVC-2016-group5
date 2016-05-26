@@ -50,13 +50,12 @@ double line() {
   return proportional_signal;
 }
 
-double speedCheck(int min, int max, double val){
+double speedCalc(int min, int speed, double val){
   if(val<min){
     val = min;
   }
-  if(val>max){
-    val = max;
-  }
+  val = (speed*100)/val;
+  val = speed/val;
   return val;
 }
 
@@ -67,17 +66,17 @@ int motorControl(double error_signal)
   double modSpeed;
     //if too far left
     if(error_signal < -200){
-      modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-      set_motor(2,SPEED*modSpeed);//right motor
+      modSpeed = speedCalc(80, SPEED, -error_signal);
+      set_motor(2,modSpeed);//right motor
       set_motor(1,SPEED);//left motor
       printf("Too far left!\n");
       printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
     }
     //if too far right
     else if(error_signal > 200){
-      modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
+      modSpeed = speedCalc(80, SPEED, error_signal);
       set_motor(2,SPEED);
-      set_motor(1,SPEED*modSpeed);
+      set_motor(1,modSpeed);
       printf("Too far right!\n");
       printf("Left motor: %d Right motor %d\n", modSpeed, SPEED);
     }
