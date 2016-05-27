@@ -1,10 +1,7 @@
 #include <stdio.h>
-
-//#include <pthread.h>
 #include <time.h>
 #include <string.h>
 
-// sudo gcc -Wall
 extern "C" int init_hardware();
 extern "C" int init(int d_lev);
 
@@ -15,7 +12,6 @@ extern "C" void set_pixel(int col, int row, char red,char green,char blue);
 extern "C" int open_screen_stream();
 extern "C" int close_screen_stream();
 extern "C" int update_screen();
-//extern "C" void GetLine(int row,int threshold);
 extern "C" int display_picture(int delay_sec,int delay_usec);
 extern "C" int save_picture(char filename[5]);
 
@@ -41,24 +37,21 @@ bool lose_line(){
       if(white>=10){
         return false;
       }
-    }else{
-      white=0;
     }
-  }return true;
+    else{white=0;}
+  }
+  return true;
 }
 
-
-double line() {
-  
+double line(){
   int sum = 0;
-  double kp = 0.2; //example value, testing needed
+  double kp = 0.2; 
   int colourVal, s;
   double proportional_signal;
-  take_picture();      // take camera shot
-  
+  take_picture(); // take camera shot
   for(int col=0; col < 320; col++){
     colourVal=get_pixel(col, 120, 3);
-    if(colourVal>127){s=1;}//if it's closer to white
+    if(colourVal>127){s=1;} //if it's closer to white
     else{s=0;}
     sum = sum + (col-160)*s;
   }
@@ -68,87 +61,69 @@ double line() {
 }
 
 double speedCheck(int min, int max, double val){
-  if(val<min){
-    val = min;
-  }
-  if(val>max){
-    val = max;
-  }
+  if(val<min){val = min;}
+  if(val>max){val = max;}
   return val;
 }
 
-int motorControl(double error_signal)
-{
+int motorControl(double error_signal){
   printf(" error signal: %f\n",error_signal);
   int SPEED = 80;
   double modSpeed;
-    //if too far left
-    if(!lose_line()){
-    if(error_signal < -200){
-      modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-      set_motor(2,SPEED*modSpeed);//right motor
-      set_motor(1,SPEED);//left motor
-      printf("Too far left!\n");
-      printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
-    }
-    //if too far right
-    else if(error_signal > 200){
-      modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
-      set_motor(2,SPEED);
-      set_motor(1,SPEED*modSpeed);
-      printf("Too far right!\n");
-      printf("Left motor: %d Right motor %d\n", modSpeed, SPEED);
-    }
-    //if centered
-    else{
+    if(!lose_line()){ //If a line is detected
+      if(error_signal < -200){ //if too far left
+        modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
+        set_motor(2,SPEED*modSpeed);//right motor
+        set_motor(1,SPEED);//left motor
+        printf("Too far left!\n");
+        printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
+      }
+      else if(error_signal > 200){ //if too far right
+        modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
+        set_motor(2,SPEED);
+        set_motor(1,SPEED*modSpeed);
+        printf("Too far right!\n");
+        printf("Left motor: %d Right motor %d\n", modSpeed, SPEED);
+      }
+    else{ //if centered
       set_motor(1,SPEED);
       set_motor(2,SPEED);
       printf("Going straight\n");
     }
-    }
-    else if(lose_line()){
+  }
+  else if(lose_line()){ //If no line is detected
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
     Sleep(0,200000);
   }
-    return 0;
+  return 0;
 }
 
-int main()
-{
-    char ip[15] = "130.195.6.196";
-    int port = 1024;
-    char request[24] = "Please";
-    char password[24];
-    int i;
-    init(0);
-    // connect camera to the screen
-    open_screen_stream();
-    // set all didgital outputs to +5V
-    for (i = 0; i < 8; i++)
-    {
-      // set all digital channels as outputs
-      select_IO(i,0);
-      write_digital(i,1);
-    }
-    // Establishes a connection to the gate's server
-    connect_to_server(ip, port);
-    // Sends the request to open the gate
-    send_to_server(request);
-    // Receives the password from the server
-    receive_from_server(password);
-    // Sends the password to the gates ip
-    send_to_server(password);
-    while(1)
-    {
-      motorControl(line());
-    }
-   // terminate hardware
-    close_screen_stream();
-    set_motor(1,0);
-    set_motor(2,0);
-
-    return 0;
-
-
+int main() {
+  char ip[15] = "130.195.6.196";
+  int port = 1024;
+  char request[24] = "Please";
+  char password[24];
+  int i;
+  init(0);
+  // connect camera to the screen
+  open_screen_stream();
+  // set all didgital outputs to +5V
+  for (i = 0; i < 8; i++){ // set all digital channels as outputs
+    select_IO(i,0);
+    write_digital(i,1);
+  }
+  connect_to_server(ip, port); // Establishes a connection to the gate's server
+  send_to_server(request); // Sends the request to open the gate
+  receive_from_server(password); // Receives the password from the server
+  send_to_server(password); // Sends the password to the gates ip
+  
+  while(1){
+    motorControl(line());
+  }
+  // terminate hardware
+  close_screen_stream();
+  set_motor(1,0);
+  set_motor(2,0);
+  return 0;
 }
