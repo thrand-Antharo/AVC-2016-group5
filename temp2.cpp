@@ -100,7 +100,7 @@ int motorControl(double error_signal){
 }
 
 int main() {
-  char ip[15] = "130.195.6.196";
+  //char ip[15] = "130.195.6.196";
   int port = 1024;
   char request[24] = "Please";
   char password[24];
@@ -113,10 +113,10 @@ int main() {
     select_IO(i,0);
     write_digital(i,1);
   }
-  connect_to_server(ip, port); // Establishes a connection to the gate's server
-  send_to_server(request); // Sends the request to open the gate
-  receive_from_server(password); // Receives the password from the server
-  send_to_server(password); // Sends the password to the gates ip
+  //connect_to_server(ip, port); // Establishes a connection to the gate's server
+  //send_to_server(request); // Sends the request to open the gate
+  //receive_from_server(password); // Receives the password from the server
+  //send_to_server(password); // Sends the password to the gates ip
   
   while(1){
     motorControl(line());
