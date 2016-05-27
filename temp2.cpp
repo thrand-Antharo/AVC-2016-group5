@@ -73,36 +73,36 @@ int motorControl(double error_signal){
     if(!lose_line()){ //If a line is detected
       modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
       if(error_signal>200 && error_signal <= 500){
-        set_motor(2,SPEED-20);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal>500 && error_signal <= 1000){
-        set_motor(2,SPEED-40);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal>1000 && error_signal <= 1500){
-        set_motor(2,SPEED-60);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal>1500){
-        set_motor(2,SPEED-80);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal<-200 && error_signal >= -500){
         set_motor(1,SPEED-20);//right motor
         set_motor(2,SPEED);//left motor
       }
-      else if(error_signal<-500 && error_signal >= -1000){
+      else if(error_signal>500 && error_signal <= 1000){
         set_motor(1,SPEED-40);//right motor
         set_motor(2,SPEED);//left motor
       }
-      else if(error_signal<-1000 && error_signal >= -1500){
+      else if(error_signal>1000 && error_signal <= 1500){
         set_motor(1,SPEED-60);//right motor
         set_motor(2,SPEED);//left motor
       }
-      else if(error_signal<-1500){
+      else if(error_signal>1500){
         set_motor(1,SPEED-80);//right motor
         set_motor(2,SPEED);//left motor
+      }
+      else if(error_signal<-200 && error_signal >= -500){
+        set_motor(2,SPEED-20);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal<-500 && error_signal >= -1000){
+        set_motor(2,SPEED-40);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal<-1000 && error_signal >= -1500){
+        set_motor(2,SPEED-60);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal<-1500){
+        set_motor(2,SPEED-80);//right motor
+        set_motor(1,SPEED);//left motor
       }
       else{
         set_motor(1,SPEED);//right motor
