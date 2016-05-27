@@ -45,7 +45,7 @@ bool lose_line(){
 
 double line(){
   int sum = 0;
-  double kp = 0.20; 
+  double kp = 0.1; 
   int colourVal, s;
   double proportional_signal;
   take_picture(); // take camera shot
