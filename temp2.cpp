@@ -45,7 +45,7 @@ bool lose_line(){
 
 double line(){
   int sum = 0;
-  double kp = 0.1; 
+  double kp = 0.20; 
   int colourVal, s;
   double proportional_signal;
   take_picture(); // take camera shot
@@ -71,50 +71,31 @@ int motorControl(double error_signal){
   int SPEED = 80;
   double modSpeed;
     if(!lose_line()){ //If a line is detected
-      modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-      if(error_signal>200 && error_signal <= 500){
-        set_motor(1,SPEED-20);//right motor
-        set_motor(2,SPEED);//left motor
-      }
-      else if(error_signal>500 && error_signal <= 1000){
-        set_motor(1,SPEED-40);//right motor
-        set_motor(2,SPEED);//left motor
-      }
-      else if(error_signal>1000 && error_signal <= 1500){
-        set_motor(1,SPEED-60);//right motor
-        set_motor(2,SPEED);//left motor
-      }
-      else if(error_signal>1500){
-        set_motor(1,SPEED-80);//right motor
-        set_motor(2,SPEED);//left motor
-      }
-      else if(error_signal<-200 && error_signal >= -500){
-        set_motor(2,SPEED-20);//right motor
+      if(error_signal < -200){ //if too far left
+        modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
+        set_motor(2,SPEED*modSpeed);//right motor
         set_motor(1,SPEED);//left motor
+        printf("Too far left!\n");
+        printf("Left motor: %d Right motor %d\n",SPEED, SPEED*modSpeed);
       }
-      else if(error_signal<-500 && error_signal >= -1000){
-        set_motor(2,SPEED-40);//right motor
-        set_motor(1,SPEED);//left motor
+      else if(error_signal > 200){ //if too far right
+        modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
+        set_motor(2,SPEED);
+        set_motor(1,SPEED*modSpeed);
+        printf("Too far right!\n");
+        printf("Left motor: %d Right motor %d\n", SPEED*modSpeed, SPEED);
       }
-      else if(error_signal<-1000 && error_signal >= -1500){
-        set_motor(2,SPEED-60);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal<-1500){
-        set_motor(2,SPEED-80);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else{
-        set_motor(1,SPEED);//right motor
-        set_motor(2,SPEED);//left motor
-      }
+    else{ //if centered
+      set_motor(1,SPEED);
+      set_motor(2,SPEED);
+      printf("Going straight\n");
     }
-    else if(lose_line()){ //If no line is detected
-      set_motor(1,-SPEED);
-      set_motor(2,-SPEED);
-      Sleep(0,150000);
-      printf("Lost line\n");
-    }
+  }
+  else if(lose_line()){ //If no line is detected
+    set_motor(1,-SPEED);
+    set_motor(2,-SPEED);
+    printf("Lost line\n");
+  }
   return 0;
 }
 
