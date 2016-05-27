@@ -29,18 +29,18 @@ extern "C" int send_to_server(char message[24]);
 extern "C" int receive_from_server(char message[24]);
 
 bool lose_line(){
-  bool lostLine = true;
   int white=0;
   for(int num=0;num<320;num++){
     int value=get_pixel(num, 160, 3);
-    if(value>127){
+    if(value>110){
       white+=1;
-    }
-  }
       if(white>=10){
-        lostLine = false;
+        return false;
       }
-    return lostLine;
+    }
+    else{white=0;}
+  }
+  return true;
 }
 
 double line(){
