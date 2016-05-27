@@ -61,7 +61,7 @@ double line(){
 }
 
 double speedCalc(int min, int speed, double error){
-  int val = (speed*100)/error;
+  int val = (speed*200)/error;
   val = speed/val;
   return val;
 }
