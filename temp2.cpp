@@ -45,7 +45,7 @@ bool lose_line(){
 
 double line(){
   int sum = 0;
-  double kp = 0.04; 
+  double kp = 0.20; 
   int colourVal, s;
   double proportional_signal;
   take_picture(); // take camera shot
@@ -71,14 +71,14 @@ int motorControl(double error_signal){
   int SPEED = 80;
   double modSpeed;
     if(!lose_line()){ //If a line is detected
-      if(error_signal < -60){ //if too far left
+      if(error_signal < -200){ //if too far left
         modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
         set_motor(2,SPEED*modSpeed);//right motor
         set_motor(1,SPEED);//left motor
         printf("Too far left!\n");
         printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
       }
-      else if(error_signal > 60){ //if too far right
+      else if(error_signal > 200){ //if too far right
         modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(2,SPEED);
         set_motor(1,SPEED*modSpeed);
