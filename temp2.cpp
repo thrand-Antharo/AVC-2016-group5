@@ -94,6 +94,7 @@ int motorControl(double error_signal){
   else if(lose_line()){ //If no line is detected
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
+    printf("Lost line\n");
   }
   return 0;
 }
