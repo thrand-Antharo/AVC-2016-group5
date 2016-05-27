@@ -32,9 +32,9 @@ bool lose_line(){
   int white=0;
   for(int num=0;num<320;num++){
     int value=get_pixel(num, 160, 3);
-    if(value>110){
+    if(value>127){
       white+=1;
-      if(white>=10){
+      if(white>=15){
         return false;
       }
     }
@@ -73,35 +73,35 @@ int motorControl(double error_signal){
     if(!lose_line()){ //If a line is detected
       modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
       if(error_signal>200 && error_signal <= 500){
-        set_motor(2,SPEED-10);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal>500 && error_signal <= 1000){
         set_motor(2,SPEED-20);//right motor
         set_motor(1,SPEED);//left motor
       }
-      else if(error_signal>1000 && error_signal <= 1500){
-        set_motor(2,SPEED-30);//right motor
-        set_motor(1,SPEED);//left motor
-      }
-      else if(error_signal>1500){
+      else if(error_signal>500 && error_signal <= 1000){
         set_motor(2,SPEED-40);//right motor
         set_motor(1,SPEED);//left motor
       }
-      else if(error_signal>-200 && error_signal <= -500){
-        set_motor(1,SPEED-10);//right motor
-        set_motor(2,SPEED);//left motor
+      else if(error_signal>1000 && error_signal <= 1500){
+        set_motor(2,SPEED-60);//right motor
+        set_motor(1,SPEED);//left motor
       }
-      else if(error_signal>-500 && error_signal <= -1000){
+      else if(error_signal>1500){
+        set_motor(2,SPEED-80);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal>-200 && error_signal <= -500){
         set_motor(1,SPEED-20);//right motor
         set_motor(2,SPEED);//left motor
       }
+      else if(error_signal>-500 && error_signal <= -1000){
+        set_motor(1,SPEED-40);//right motor
+        set_motor(2,SPEED);//left motor
+      }
       else if(error_signal>-1000 && error_signal <= -1500){
-        set_motor(1,SPEED-30);//right motor
+        set_motor(1,SPEED-60);//right motor
         set_motor(2,SPEED);//left motor
       }
       else if(error_signal>-1500){
-        set_motor(1,SPEED-40);//right motor
+        set_motor(1,SPEED-80);//right motor
         set_motor(2,SPEED);//left motor
       }
       else{
