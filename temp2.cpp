@@ -94,7 +94,7 @@ int motorControl(double error_signal){
   else if(lose_line()){ //If no line is detected
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    Sleep(0,200000);
+    Sleep(0,050000);
   }
   return 0;
 }
