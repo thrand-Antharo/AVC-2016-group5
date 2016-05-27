@@ -75,7 +75,7 @@ int motorControl(double error_signal){
         modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
         set_motor(1,-SPEED);
         set_motor(2,-SPEED);
-        Sleep(0,050000);
+        Sleep(0,100000);
         set_motor(2,SPEED-70);//right motor
         set_motor(1,SPEED);//left motor
         printf("Too far left!\n");
@@ -85,7 +85,7 @@ int motorControl(double error_signal){
         modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(1,-SPEED);
         set_motor(2,-SPEED);
-        Sleep(0,050000);
+        Sleep(0,100000);
         set_motor(2,SPEED);
         set_motor(1,SPEED-70);
         printf("Too far right!\n");
@@ -100,7 +100,7 @@ int motorControl(double error_signal){
   else if(lose_line()){ //If no line is detected
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    Sleep(0,150000);
+    Sleep(0,200000);
     printf("Lost line\n");
   }
   return 0;
