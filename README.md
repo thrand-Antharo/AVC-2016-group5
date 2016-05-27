@@ -3,7 +3,7 @@ AVC robot building project.
 
 |  |   |
 | :------------ |:---------------:| 
-| IP | 10.140.45.170 |
+| IP | 10.140.55.36 |
 | Compile | gcc -L/usr/lib -o testMain testMain.cpp -lE101 |
 | Run | sudo ./lt |
 | Git Clone | git clone https://github.com/thrand-Antharo/AVC-2016-group5 |
