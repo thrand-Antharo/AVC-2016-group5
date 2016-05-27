@@ -72,14 +72,42 @@ int motorControl(double error_signal){
   double modSpeed;
     if(!lose_line()){ //If a line is detected
       modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-      if(modSpeed>0){
-        set_motor(2,SPEED*modSpeed);//right motor
+      if(error_signal>200 && error_signal <= 500){
+        set_motor(2,SPEED-10);//right motor
         set_motor(1,SPEED);//left motor
       }
-      if(modSpeed<0){
-        set_motor(2,SPEED);//right motor
-        set_motor(1,SPEED*modSpeed);//left motor
-        }
+      else if(error_signal>500 && error_signal <= 1000){
+        set_motor(2,SPEED-20);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal>1000 && error_signal <= 1500){
+        set_motor(2,SPEED-30);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal>1500){
+        set_motor(2,SPEED-40);//right motor
+        set_motor(1,SPEED);//left motor
+      }
+      else if(error_signal>-200 && error_signal <= -500){
+        set_motor(1,SPEED-10);//right motor
+        set_motor(2,SPEED);//left motor
+      }
+      else if(error_signal>-500 && error_signal <= -1000){
+        set_motor(1,SPEED-20);//right motor
+        set_motor(2,SPEED);//left motor
+      }
+      else if(error_signal>-1000 && error_signal <= -1500){
+        set_motor(1,SPEED-30);//right motor
+        set_motor(2,SPEED);//left motor
+      }
+      else if(error_signal>-1500){
+        set_motor(1,SPEED-40);//right motor
+        set_motor(2,SPEED);//left motor
+      }
+      else{
+        set_motor(1,SPEED);//right motor
+        set_motor(2,SPEED);//left motor
+      }
     }
     else if(lose_line()){ //If no line is detected
       set_motor(1,-SPEED);
