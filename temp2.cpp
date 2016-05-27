@@ -30,17 +30,14 @@ extern "C" int receive_from_server(char message[24]);
 
 bool lose_line(){
   bool lostLine = true;
-  int consecWhite=0;
+  int white=0;
   for(int num=0;num<320;num++){
     int value=get_pixel(num, 160, 3);
     if(value>127){
-      consecWhite+=1;
-    }
-    else{
-      consecWhite = 0;
+      white+=1;
     }
   }
-      if(consecWhite>=10){
+      if(white>=10){
         lostLine = false;
       }
     return lostLine;
