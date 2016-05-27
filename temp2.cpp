@@ -76,14 +76,14 @@ int motorControl(double error_signal){
         set_motor(2,SPEED*modSpeed);//right motor
         set_motor(1,SPEED);//left motor
         printf("Too far left!\n");
-        printf("Left motor: %d Right motor %d\n",SPEED, modSpeed);
+        printf("Left motor: %d Right motor %d\n",SPEED, SPEED*modSpeed);
       }
       else if(error_signal > 200){ //if too far right
         modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(2,SPEED);
         set_motor(1,SPEED*modSpeed);
         printf("Too far right!\n");
-        printf("Left motor: %d Right motor %d\n", modSpeed, SPEED);
+        printf("Left motor: %d Right motor %d\n", SPEED*modSpeed, SPEED);
       }
     else{ //if centered
       set_motor(1,SPEED);
@@ -94,7 +94,6 @@ int motorControl(double error_signal){
   else if(lose_line()){ //If no line is detected
     set_motor(1,-SPEED);
     set_motor(2,-SPEED);
-    Sleep(0,200000);
   }
   return 0;
 }
