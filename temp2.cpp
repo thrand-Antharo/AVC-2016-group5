@@ -32,9 +32,9 @@ bool lose_line(){
   int white=0;
   for(int num=0;num<320;num++){
     int value=get_pixel(num, 160, 3);
-    if(value>127){
+    if(value>110){
       white+=1;
-      if(white>=15){
+      if(white>=10){
         return false;
       }
     }
