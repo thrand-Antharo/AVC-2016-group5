@@ -43,13 +43,28 @@ AVC robot building project.
 ### Week 4 Checklist 
 - Complete software Development to complete quadrant two
 - test cases for quadrant two 
-- write results/discussions (ALL)
-- test code that hasnt been checked off from previous weeks
+- [x]write results/discussions (ALL)
+- [x]test code that hasnt been checked off from previous weeks
 
 ### Week 5 Checklist
 - Complete software development to complete quadrant three
 - test cases for quadrant three
 - update sections with new results 
+
+### Week 6 Cheeklist
+- update sections with new results
+- complete software develop ment for quadrant four
+- start test cases for quadrant four
+
+### Week 7 Cheeklist
+- revise sections based on feedback
+
+#### Week 8 Cheeklist 
+- write conclusion and abstract sections
+
+
+### Week 9 Cheeklist 
+- complete final reports and sumbit
 
 
   
