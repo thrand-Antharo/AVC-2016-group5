@@ -75,6 +75,8 @@ int motorControl(double error_signal){
         modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
         set_motor(2,SPEED-45);//right motor
         set_motor(1,SPEED);//left motor
+        Sleep(0,010000);
+        
         printf("Too far left!\n");
         printf("Left motor: %d Right motor %d\n",SPEED, SPEED*modSpeed);
       }
@@ -82,6 +84,7 @@ int motorControl(double error_signal){
         modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(2,SPEED);
         set_motor(1,SPEED-45);
+        Sleep(0,010000);
         printf("Too far right!\n");
         printf("Left motor: %d Right motor %d\n", SPEED*modSpeed, SPEED);
       }
