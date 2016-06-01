@@ -60,31 +60,23 @@ double line(){
   return proportional_signal;
 }
 
-double speedCheck(int min, int max, double val){
-  if(val<min){val = min;}
-  if(val>max){val = max;}
-  return val;
-}
-
 int motorControl(double error_signal){
   printf(" error signal: %f\n",error_signal);
   int SPEED = 55;
   double modSpeed;
     if(!lose_line()){ //If a line is detected
       if(error_signal < -300){ //if too far left
-        modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-        set_motor(2,SPEED-30);//right motor
+        set_motor(2,SPEED-47);//right motor
         set_motor(1,SPEED);//left motor
         
         printf("Too far left!\n");
-        printf("Left motor: %d Right motor %d\n",SPEED, SPEED*modSpeed);
+        printf("Left motor: %d Right motor %d\n",SPEED, SPEED);
       }
       else if(error_signal > 300){ //if too far right
-        modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(2,SPEED);
-        set_motor(1,SPEED-30);
+        set_motor(1,SPEED-47);
         printf("Too far right!\n");
-        printf("Left motor: %d Right motor %d\n", SPEED*modSpeed, SPEED);
+        printf("Left motor: %d Right motor %d\n", SPEED, SPEED);
       }
     else{ //if centered
       set_motor(1,SPEED);
@@ -102,7 +94,7 @@ int motorControl(double error_signal){
 }
 
 int main() {
-  //char ip[15] = "130.195.6.196";
+  char ip[15] = "130.195.6.196";
   int port = 1024;
   char request[24] = "Please";
   char password[24];
