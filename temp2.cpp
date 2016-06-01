@@ -68,21 +68,21 @@ double speedCheck(int min, int max, double val){
 
 int motorControl(double error_signal){
   printf(" error signal: %f\n",error_signal);
-  int SPEED = 60;
+  int SPEED = 55;
   double modSpeed;
     if(!lose_line()){ //If a line is detected
-      if(error_signal < -150){ //if too far left
+      if(error_signal < -300){ //if too far left
         modSpeed = speedCheck(0, SPEED, SPEED+(error_signal/4));
-        set_motor(2,SPEED-55);//right motor
+        set_motor(2,SPEED-47);//right motor
         set_motor(1,SPEED);//left motor
         
         printf("Too far left!\n");
         printf("Left motor: %d Right motor %d\n",SPEED, SPEED*modSpeed);
       }
-      else if(error_signal > 150){ //if too far right
+      else if(error_signal > 300){ //if too far right
         modSpeed = speedCheck(0, SPEED, SPEED-(error_signal/4));
         set_motor(2,SPEED);
-        set_motor(1,SPEED-55);
+        set_motor(1,SPEED-47);
         printf("Too far right!\n");
         printf("Left motor: %d Right motor %d\n", SPEED*modSpeed, SPEED);
       }
